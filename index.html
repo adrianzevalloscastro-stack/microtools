@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador de QR gratis y Calculadora de unidades online | MicroTools</title>
+<meta name="description" content="Crea códigos QR gratis y descárgalos en PNG de alta calidad. Convierte unidades de longitud, velocidad, temperatura y presión, y resuelve Pitágoras y ecuaciones cuadráticas al instante.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f172a">
+<!-- Cambia TU-DOMINIO.com por tu dominio real -->
+<link rel="canonical" href="https://TU-DOMINIO.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Generador de QR gratis y Calculadora de unidades online">
+<meta property="og:description" content="Herramientas rápidas y precisas: códigos QR en PNG, conversor de unidades y fórmulas básicas.">
+<meta property="og:url" content="https://TU-DOMINIO.com/">
+<meta property="og:image" content="https://TU-DOMINIO.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"MicroTools","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"es","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Generador de códigos QR y calculadora de unidades online."}
+</script>
+<!-- AdSense: descomenta cuando tu cuenta esté aprobada y pon tu ID
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+:root{--bg:#0b1220;--card:#131c2f;--bd:#24314b;--tx:#e8eefc;--mu:#93a1bd;--ac:#6366f1;--ac2:#818cf8;--ok:#34d399;--r:14px}
+@media (prefers-color-scheme:light){:root{--bg:#f4f6fb;--card:#fff;--bd:#dbe1ee;--tx:#0f172a;--mu:#5b6783;--ac:#4f46e5;--ac2:#4338ca}}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:16px}
+header{padding:8px 0 4px}
+h1{font-size:1.5rem;line-height:1.2}
+h1 span{color:var(--ac2)}
+.sub{color:var(--mu);font-size:.95rem;margin-top:4px}
+.tabs{display:flex;gap:6px;margin:16px 0;background:var(--card);border:1px solid var(--bd);padding:5px;border-radius:var(--r)}
+.tabs button{flex:1;padding:10px 4px;border:0;border-radius:10px;background:none;color:var(--mu);font:600 .9rem inherit;font-family:inherit;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ac);color:#fff}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
+.card h2{font-size:1.15rem;margin-bottom:12px}
+label{display:block;font-size:.85rem;color:var(--mu);margin:12px 0 4px}
+input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit;font-size:16px}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--ac2);outline-offset:1px}
+textarea{resize:vertical;min-height:80px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.btn{display:block;width:100%;margin-top:14px;padding:13px;border:0;border-radius:10px;background:var(--ac);color:#fff;font:600 1rem inherit;font-family:inherit;cursor:pointer}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.sec{background:none;border:1px solid var(--bd);color:var(--tx)}
+.qrbox{display:grid;place-items:center;margin-top:16px;min-height:200px;background:#fff;border-radius:12px;padding:10px}
+.qrbox canvas{width:100%;max-width:280px;height:auto;image-rendering:pixelated}
+.hint{color:var(--mu);font-size:.85rem;margin-top:8px;text-align:center}
+.res{margin-top:14px;padding:14px;border-radius:10px;background:var(--bg);border:1px solid var(--bd);font-size:1.15rem;font-weight:600;word-break:break-word}
+.res small{display:block;color:var(--mu);font-weight:400;font-size:.8rem;margin-top:2px}
+.res.err{color:#f87171}
+.swap{margin:10px auto 0;display:block;background:none;border:1px solid var(--bd);color:var(--tx);border-radius:50%;width:40px;height:40px;font-size:1.1rem;cursor:pointer}
+[hidden]{display:none!important}
+.ad-container{margin:16px 0;min-height:100px;display:grid;place-items:center;border:1px dashed var(--bd);border-radius:var(--r);color:var(--mu);font-size:.75rem;text-align:center;overflow:hidden}
+.ad-container::before{content:"Publicidad";}
+.ad-container ins{display:block;width:100%}
+.ad-container:has(ins[data-ad-status])::before{content:none}
+main>.card:not([hidden])~.card:not([hidden]){margin-top:16px}
+.seg{display:flex;gap:6px;margin-bottom:14px}
+.seg button{flex:1;padding:9px;border-radius:10px;border:1px solid var(--bd);background:none;color:var(--mu);font:600 .9rem inherit;font-family:inherit;cursor:pointer}
+.seg button[aria-pressed=true]{border-color:var(--ac);color:var(--tx);background:var(--bg)}
+#wgrid{display:grid;gap:6px;max-width:300px;margin:0 auto}
+.wr{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.wt{aspect-ratio:1;display:grid;place-items:center;border:2px solid var(--bd);border-radius:8px;font:700 1.5rem inherit;font-family:inherit;text-transform:uppercase}
+.wt.f{border-color:var(--mu)}
+.ok{background:#16a34a!important;border-color:#16a34a!important;color:#fff}
+.pr{background:#ca8a04!important;border-color:#ca8a04!important;color:#fff}
+.no{background:#475569!important;border-color:#475569!important;color:#fff}
+#wkb{margin:14px 0 6px;display:grid;gap:6px}
+.kr{display:flex;gap:4px;justify-content:center}
+.key{flex:1;max-width:38px;height:48px;padding:0;border:0;border-radius:6px;background:var(--bd);color:var(--tx);font:600 .95rem inherit;font-family:inherit;cursor:pointer}
+.key.w{max-width:56px;font-size:.8rem}
+.mq{font-size:2rem;text-align:center;padding:18px 0}
+.seo{margin-top:24px;color:var(--mu);font-size:.9rem}
+.seo h2{color:var(--tx);font-size:1rem;margin:12px 0 4px}
+footer{text-align:center;color:var(--mu);font-size:.8rem;padding:24px 0 12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Micro<span>Tools</span> · Utilidades rápidas</h1>
+    <p class="sub">QR gratis, conversor de unidades y fórmulas. Todo en tu navegador, sin registro.</p>
+  </header>
+
+  <!-- ANUNCIO SUPERIOR -->
+  <aside class="ad-container" id="ad-top" aria-label="Publicidad">
+    <!-- Pega aquí tu bloque <ins class="adsbygoogle" ...> de AdSense -->
+  </aside>
+
+  <nav class="tabs" role="tablist" aria-label="Herramientas">
+    <button role="tab" aria-selected="true" data-tab="qr">Herramientas QR</button>
+    <button role="tab" aria-selected="false" data-tab="util">Utilidades</button>
+    <button role="tab" aria-selected="false" data-tab="games">Minijuegos</button>
+  </nav>
+
+  <main>
+    <!-- HERRAMIENTA 1: QR -->
+    <section class="card" id="tab-qr" role="tabpanel">
+      <h2>Generador de códigos QR gratis</h2>
+      <label for="qtype">Tipo de contenido</label>
+      <select id="qtype">
+        <option value="text">Texto o URL</option>
+        <option value="tel">Teléfono</option>
+        <option value="wa">WhatsApp</option>
+        <option value="mail">Correo electrónico</option>
+      </select>
+      <div id="f-text"><label for="qtext">Texto o enlace</label><textarea id="qtext" placeholder="https://ejemplo.com"></textarea></div>
+      <div id="f-tel" hidden><label for="qtel">Teléfono (con código de país)</label><input id="qtel" type="tel" inputmode="tel" placeholder="+34600123456"></div>
+      <div id="f-wa" hidden>
+        <label for="qwa">Número de WhatsApp (con código de país)</label><input id="qwa" type="tel" inputmode="tel" placeholder="34600123456">
+        <label for="qwam">Mensaje (opcional)</label><input id="qwam" placeholder="Hola, quisiera más información">
+      </div>
+      <div id="f-mail" hidden>
+        <label for="qmail">Correo</label><input id="qmail" type="email" inputmode="email" placeholder="nombre@correo.com">
+        <label for="qsub">Asunto (opcional)</label><input id="qsub">
+      </div>
+      <div class="row">
+        <div><label for="qfg">Color del QR</label><input id="qfg" type="color" value="#000000" style="height:46px;padding:4px"></div>
+        <div><label for="qec">Corrección de errores</label>
+          <select id="qec"><option value="L">Baja (L)</option><option value="M" selected>Media (M)</option><option value="Q">Alta (Q)</option><option value="H">Máxima (H)</option></select>
+        </div>
+      </div>
+      <div class="qrbox"><canvas id="qcanvas" width="1" height="1" aria-label="Código QR generado"></canvas><span id="qempty" class="hint" style="color:#64748b">Escribe algo para generar tu QR</span></div>
+      <button class="btn" id="qdl" disabled>Descargar PNG (alta calidad)</button>
+      <p class="hint" id="qmsg"></p>
+    </section>
+
+    <!-- HERRAMIENTA 2: CONVERSOR -->
+    <section class="card" id="tab-conv" role="tabpanel" hidden>
+      <h2>Calculadora de unidades online</h2>
+      <label for="cat">Magnitud</label>
+      <select id="cat"></select>
+      <label for="cval">Valor</label>
+      <input id="cval" type="number" inputmode="decimal" step="any" value="1">
+      <div class="row">
+        <div><label for="cfrom">De</label><select id="cfrom"></select></div>
+        <div><label for="cto">A</label><select id="cto"></select></div>
+      </div>
+      <button class="swap" id="cswap" aria-label="Intercambiar unidades">⇄</button>
+      <div class="res" id="cres" aria-live="polite"></div>
+    </section>
+
+    <!-- HERRAMIENTA 3: FÓRMULAS -->
+    <section class="card" id="tab-form" role="tabpanel" hidden>
+      <h2>Fórmulas rápidas</h2>
+      <label for="ftype">Fórmula</label>
+      <select id="ftype">
+        <option value="pit">Teorema de Pitágoras</option>
+        <option value="quad">Ecuación cuadrática (ax² + bx + c = 0)</option>
+      </select>
+      <div id="f-pit">
+        <label for="pfind">Calcular</label>
+        <select id="pfind"><option value="c">Hipotenusa (c)</option><option value="a">Cateto a</option></select>
+        <div class="row">
+          <div><label for="pa" id="pla">Cateto a</label><input id="pa" type="number" inputmode="decimal" step="any"></div>
+          <div><label for="pb" id="plb">Cateto b</label><input id="pb" type="number" inputmode="decimal" step="any"></div>
+        </div>
+      </div>
+      <div id="f-quad" hidden>
+        <div class="row3">
+          <div><label for="qa">a</label><input id="qa" type="number" inputmode="decimal" step="any"></div>
+          <div><label for="qb">b</label><input id="qb" type="number" inputmode="decimal" step="any"></div>
+          <div><label for="qc">c</label><input id="qc" type="number" inputmode="decimal" step="any"></div>
+        </div>
+      </div>
+      <div class="res" id="fres" aria-live="polite">Introduce los valores</div>
+    </section>
+    <!-- MINIJUEGOS -->
+    <section class="card" id="tab-games" role="tabpanel" hidden>
+      <h2>Minijuegos y retos rápidos</h2>
+      <div class="seg"><button data-g="w" aria-pressed="true">Palabra</button><button data-g="m" aria-pressed="false">Reto de cálculo</button></div>
+      <div id="g-w">
+        <p class="hint" style="margin:0 0 10px">Adivina la palabra de 5 letras en 6 intentos.</p>
+        <div id="wgrid"></div>
+        <p class="hint" id="wmsg" aria-live="polite" style="min-height:1.5em"></p>
+        <div id="wkb"></div>
+        <button class="btn sec" id="wnew">Nueva palabra</button>
+        <p class="hint" id="wstats"></p>
+      </div>
+      <div id="g-m" hidden>
+        <p class="hint" style="margin:0">Resuelve cuantas operaciones puedas en 30 segundos.</p>
+        <div class="mq res" id="mq">¿Listo?</div>
+        <input id="ma" type="number" inputmode="numeric" placeholder="Tu respuesta" disabled>
+        <button class="btn" id="mgo">Empezar</button>
+        <p class="hint" id="mst">Tiempo: 30 s · Puntos: 0</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ANUNCIO INFERIOR -->
+  <aside class="ad-container" id="ad-bottom" aria-label="Publicidad"></aside>
+
+  <section class="seo">
+    <h2>Generador de QR gratis</h2>
+    <p>Crea códigos QR para enlaces, teléfonos, WhatsApp o correo y descárgalos en PNG sin marca de agua. Se generan en tu dispositivo: no enviamos tus datos a ningún servidor.</p>
+    <h2>Minijuegos gratis</h2>
+    <p>Adivina la palabra del día estilo Wordle o supera tu marca en el reto de cálculo mental.</p>
+    <h2>Conversor de unidades preciso</h2>
+    <p>Convierte longitud, velocidad, temperatura y presión con factores exactos, y resuelve Pitágoras o ecuaciones cuadráticas con raíces reales y complejas.</p>
+  </section>
+  <footer>© <span id="yr"></span> MicroTools · <a href="#" style="color:inherit">Privacidad</a></footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+$("yr").textContent=new Date().getFullYear();
+
+/* ---------- Pestañas ---------- */
+var tabs=document.querySelectorAll(".tabs button");
+tabs.forEach(function(b){b.addEventListener("click",function(){
+  tabs.forEach(function(x){x.setAttribute("aria-selected",x===b)});
+  var map={qr:["tab-qr"],util:["tab-conv","tab-form"],games:["tab-games"]};
+  Object.keys(map).forEach(function(t){map[t].forEach(function(id){$(id).hidden=(t!==b.dataset.tab)})});
+})});
+
+/* ---------- QR ---------- */
+var types=["text","tel","wa","mail"];
+function qrData(){
+  var t=$("qtype").value;
+  if(t==="text")return $("qtext").value.trim();
+  if(t==="tel"){var p=$("qtel").value.replace(/[^\d+]/g,"");return p?"tel:"+p:""}
+  if(t==="wa"){var n=$("qwa").value.replace(/\D/g,"");if(!n)return"";var m=$("qwam").value.trim();return "https://wa.me/"+n+(m?"?text="+encodeURIComponent(m):"")}
+  var e=$("qmail").value.trim();if(!e)return"";var s=$("qsub").value.trim();
+  return "mailto:"+e+(s?"?subject="+encodeURIComponent(s):"");
+}
+function drawQR(){
+  var data=qrData(),cv=$("qcanvas"),msg=$("qmsg");
+  msg.textContent="";
+  if(!data||typeof qrcode==="undefined"){cv.style.display="none";$("qempty").hidden=false;$("qdl").disabled=true;
+    if(data&&typeof qrcode==="undefined")msg.textContent="Cargando librería…";return}
+  try{
+    var q=qrcode(0,$("qec").value);q.addData(data,"Byte");q.make();
+    var n=q.getModuleCount(),quiet=4,total=n+quiet*2,scale=Math.max(1,Math.floor(1024/total)),size=total*scale;
+    cv.width=cv.height=size;
+    var c=cv.getContext("2d");c.fillStyle="#fff";c.fillRect(0,0,size,size);c.fillStyle=$("qfg").value;
+    for(var r=0;r<n;r++)for(var k=0;k<n;k++)if(q.isDark(r,k))c.fillRect((k+quiet)*scale,(r+quiet)*scale,scale,scale);
+    cv.style.display="block";$("qempty").hidden=true;$("qdl").disabled=false;
+  }catch(err){cv.style.display="none";$("qempty").hidden=false;$("qdl").disabled=true;msg.textContent="Contenido demasiado largo para un QR. Acórtalo."}
+}
+function qrFields(){types.forEach(function(t){$("f-"+t).hidden=(t!==$("qtype").value)});drawQR()}
+$("qtype").addEventListener("change",qrFields);
+["qtext","qtel","qwa","qwam","qmail","qsub","qfg","qec"].forEach(function(id){$(id).addEventListener("input",drawQR)});
+window.addEventListener("load",drawQR);
+$("qdl").addEventListener("click",function(){
+  $("qcanvas").toBlob(function(b){
+    var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="codigo-qr.png";
+    document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
+  },"image/png");
+});
+
+/* ---------- Conversor ---------- */
+// factor = unidades base por 1 unidad (SI exactos)
+var U={
+  "Longitud":{base:"m",u:{"metro (m)":1,"kilómetro (km)":1000,"centímetro (cm)":.01,"milímetro (mm)":.001,"milla (mi)":1609.344,"yarda (yd)":.9144,"pie (ft)":.3048,"pulgada (in)":.0254,"milla náutica":1852}},
+  "Velocidad":{base:"m/s",u:{"m/s":1,"km/h":1/3.6,"mph":.44704,"nudo (kn)":1852/3600,"pie/s (ft/s)":.3048}},
+  "Presión":{base:"Pa",u:{"pascal (Pa)":1,"kilopascal (kPa)":1000,"bar":1e5,"atmósfera (atm)":101325,"psi":6894.757293168,"mmHg (torr)":133.322387415}},
+  "Temperatura":{temp:true,u:{"Celsius (°C)":0,"Fahrenheit (°F)":0,"Kelvin (K)":0}}
+};
+var cat=$("cat"),from=$("cfrom"),to=$("cto");
+function fill(sel,arr,idx){sel.innerHTML=arr.map(function(x){return "<option>"+x+"</option>"}).join("");sel.selectedIndex=idx}
+Object.keys(U).forEach(function(k){cat.add(new Option(k))});
+function loadUnits(){var ks=Object.keys(U[cat.value].u);fill(from,ks,0);fill(to,ks,Math.min(1,ks.length-1));convert()}
+function toC(v,u){return u.indexOf("°C")>-1?v:u.indexOf("°F")>-1?(v-32)*5/9:v-273.15}
+function fromC(c,u){return u.indexOf("°C")>-1?c:u.indexOf("°F")>-1?c*9/5+32:c+273.15}
+function fmt(x){
+  if(!isFinite(x))return "—";
+  if(x===0)return "0";
+  var a=Math.abs(x);
+  if(a>=1e12||a<1e-6)return x.toExponential(8).replace(/\.?0+e/,"e");
+  return parseFloat(x.toPrecision(12)).toLocaleString("es",{maximumFractionDigits:10});
+}
+function convert(){
+  var v=parseFloat($("cval").value),res=$("cres"),d=U[cat.value],out;
+  if(isNaN(v)){res.textContent="Introduce un valor";return}
+  if(d.temp){out=fromC(toC(v,from.value),to.value)}
+  else{out=v*d.u[from.value]/d.u[to.value]}
+  res.innerHTML=fmt(v)+" "+from.value+" = "+fmt(out)+" "+to.value+"<small>Conversión con factores exactos</small>";
+}
+cat.addEventListener("change",loadUnits);
+[from,to,$("cval")].forEach(function(e){e.addEventListener("input",convert)});
+$("cswap").addEventListener("click",function(){var i=from.selectedIndex;from.selectedIndex=to.selectedIndex;to.selectedIndex=i;convert()});
+loadUnits();
+
+/* ---------- Fórmulas ---------- */
+function show(msg,err){var r=$("fres");r.className="res"+(err?" err":"");r.innerHTML=msg}
+function calc(){
+  if($("ftype").value==="pit"){
+    var a=parseFloat($("pa").value),b=parseFloat($("pb").value),c=$("pfind").value==="c";
+    if(isNaN(a)||isNaN(b))return show("Introduce los dos valores");
+    if(a<=0||b<=0)return show("Los lados deben ser positivos",1);
+    if(c)return show("c = "+fmt(Math.sqrt(a*a+b*b))+"<small>c = √(a² + b²)</small>");
+    if(b<=a)return show("La hipotenusa debe ser mayor que el cateto",1);
+    show("a = "+fmt(Math.sqrt(b*b-a*a))+"<small>a = √(c² − b²)</small>");
+  }else{
+    var A=parseFloat($("qa").value),B=parseFloat($("qb").value),C=parseFloat($("qc").value);
+    if(isNaN(A)||isNaN(B)||isNaN(C))return show("Introduce a, b y c");
+    if(A===0){if(B===0)return show("No es una ecuación válida",1);return show("Ecuación lineal: x = "+fmt(-C/B))}
+    var D=B*B-4*A*C,s="Discriminante: "+fmt(D);
+    if(D>0){var q=Math.sqrt(D);show("x₁ = "+fmt((-B+q)/(2*A))+"<br>x₂ = "+fmt((-B-q)/(2*A))+"<small>"+s+" · dos raíces reales</small>")}
+    else if(D===0)show("x = "+fmt(-B/(2*A))+"<small>"+s+" · raíz doble</small>");
+    else{var re=-B/(2*A),im=Math.sqrt(-D)/(2*Math.abs(A));show("x₁ = "+fmt(re)+" + "+fmt(im)+"i<br>x₂ = "+fmt(re)+" − "+fmt(im)+"i<small>"+s+" · raíces complejas</small>")}
+  }
+}
+$("ftype").addEventListener("change",function(){var p=this.value==="pit";$("f-pit").hidden=!p;$("f-quad").hidden=p;calc()});
+$("pfind").addEventListener("change",function(){var c=this.value==="c";$("pla").textContent=c?"Cateto a":"Cateto b";$("plb").textContent=c?"Cateto b":"Hipotenusa c";calc()});
+["pa","pb","qa","qb","qc"].forEach(function(id){$(id).addEventListener("input",calc)});
+
+/* ---------- Minijuegos ---------- */
+document.querySelectorAll(".seg button").forEach(function(b){b.addEventListener("click",function(){
+  document.querySelectorAll(".seg button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+  $("g-w").hidden=b.dataset.g!=="w";$("g-m").hidden=b.dataset.g!=="m";
+})});
+function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+
+/* Palabra (estilo Wordle) */
+var WORDS=("ABEJA ARBOL AVION BARCO BRAZO CAMPO CARTA CIELO CLASE COCHE CORTE CUERO DEDOS DULCE FELIZ FUEGO FLORA GATOS GENTE GRANO HIELO HOJAS HUEVO JUEGO LAPIZ LIBRO LLAVE LUGAR MADRE MANGO MONTE MUNDO NUBES NOCHE PAPEL PERRO PIANO PLAYA PLATO QUESO RADIO RELOJ RIVAL ROBOT SALUD SILLA SUELO TARDE TIGRE TORRE TRIGO VIAJE VIDEO VERDE ZORRO NIEVE PLUMA CALOR CAUSA FORMA PUNTO NUEVO ANGEL BANCO BOLSA CABLE CERDO DADOS DOLAR FRUTA GLOBO LECHE LIMON MAPAS METAL MOTOR NORTE OLIVA PIEZA PISTA REGLA SALSA SIGNO TEXTO VALOR VOCAL YOGUR").split(" ");
+var W={ans:"",r:0,c:0,done:false,g:[],k:{}},tiles=[];
+(function(){
+  var h="";for(var r=0;r<6;r++){h+='<div class="wr">';for(var c=0;c<5;c++)h+='<div class="wt"></div>';h+="</div>"}
+  $("wgrid").innerHTML=h;var t=$("wgrid").querySelectorAll(".wt");
+  for(var i=0;i<6;i++)tiles.push(Array.prototype.slice.call(t,i*5,i*5+5));
+  var kb="";["QWERTYUIOP","ASDFGHJKL","*ZXCVBNM#"].forEach(function(row){
+    kb+='<div class="kr">'+row.split("").map(function(ch){
+      return ch==="*"?'<button class="key w" data-k="ENTER">ENVIAR</button>':ch==="#"?'<button class="key w" data-k="DEL" aria-label="Borrar">⌫</button>':'<button class="key" data-k="'+ch+'">'+ch+"</button>"}).join("")+"</div>"});
+  $("wkb").innerHTML=kb;
+})();
+function wstats(){var s=ls("mt_w")||{w:0,p:0,s:0};$("wstats").textContent="Partidas: "+s.p+" · Ganadas: "+s.w+" · Racha: "+s.s}
+function wstart(){
+  W.ans=WORDS[Math.floor(Math.random()*WORDS.length)];W.r=0;W.c=0;W.done=false;W.g=["","","","","",""];W.k={};
+  tiles.forEach(function(row){row.forEach(function(t){t.textContent="";t.className="wt"})});
+  document.querySelectorAll(".key").forEach(function(k){k.classList.remove("ok","pr","no")});
+  $("wmsg").textContent="";wstats();
+}
+function wpress(k){
+  if(W.done)return;
+  if(k==="DEL"){if(W.c>0){W.c--;var t=tiles[W.r][W.c];t.textContent="";t.classList.remove("f")}return}
+  if(k==="ENTER"){return wsubmit()}
+  if(W.c<5){var t=tiles[W.r][W.c];t.textContent=k;t.classList.add("f");W.c++}
+}
+function wsubmit(){
+  if(W.c<5){$("wmsg").textContent="Faltan letras";return}
+  var g=tiles[W.r].map(function(t){return t.textContent}).join(""),res=["no","no","no","no","no"],left={},i;
+  for(i=0;i<5;i++){if(g[i]===W.ans[i])res[i]="ok";else left[W.ans[i]]=(left[W.ans[i]]||0)+1}
+  for(i=0;i<5;i++)if(res[i]!=="ok"&&left[g[i]]>0){res[i]="pr";left[g[i]]--}
+  var rank={no:1,pr:2,ok:3};
+  for(i=0;i<5;i++){
+    tiles[W.r][i].classList.add(res[i]);
+    if(!W.k[g[i]]||rank[res[i]]>rank[W.k[g[i]]]){W.k[g[i]]=res[i];
+      var kb=document.querySelector('.key[data-k="'+g[i]+'"]');if(kb){kb.classList.remove("ok","pr","no");kb.classList.add(res[i])}}
+  }
+  var s=ls("mt_w")||{w:0,p:0,s:0};
+  if(g===W.ans){W.done=true;s.p++;s.w++;s.s++;ls("mt_w",s);$("wmsg").textContent="¡Correcto! 🎉";wstats();return}
+  W.r++;W.c=0;
+  if(W.r===6){W.done=true;s.p++;s.s=0;ls("mt_w",s);$("wmsg").textContent="La palabra era "+W.ans;wstats()}
+}
+$("wkb").addEventListener("click",function(e){var b=e.target.closest(".key");if(b)wpress(b.dataset.k)});
+$("wnew").addEventListener("click",wstart);
+document.addEventListener("keydown",function(e){
+  if($("tab-games").hidden||$("g-w").hidden||e.ctrlKey||e.metaKey||e.altKey)return;
+  var tg=e.target.tagName;if(tg==="INPUT"||tg==="TEXTAREA"||tg==="SELECT")return;
+  if(e.key==="Enter")wpress("ENTER");else if(e.key==="Backspace")wpress("DEL");else if(/^[a-zA-Z]$/.test(e.key))wpress(e.key.toUpperCase());
+});
+wstart();
+
+/* Reto de cálculo */
+var M={t:0,p:0,ans:0,iv:null,on:false};
+function mnew(){
+  var l=Math.min(3,1+Math.floor(M.p/4)),max=[0,10,30,60][l],a=1+Math.floor(Math.random()*max),b=1+Math.floor(Math.random()*max),o=Math.floor(Math.random()*3);
+  if(o===0){M.ans=a+b;$("mq").textContent=a+" + "+b}
+  else if(o===1){if(b>a){var x=a;a=b;b=x}M.ans=a-b;$("mq").textContent=a+" − "+b}
+  else{a=1+Math.floor(Math.random()*(l+8));b=1+Math.floor(Math.random()*(l+8));M.ans=a*b;$("mq").textContent=a+" × "+b}
+  $("ma").value="";$("ma").focus();
+}
+function mshow(){$("mst").textContent="Tiempo: "+M.t+" s · Puntos: "+M.p}
+function mend(){
+  clearInterval(M.iv);M.on=false;$("ma").disabled=true;$("mgo").textContent="Jugar de nuevo";
+  var best=ls("mt_m")||0;if(M.p>best){best=M.p;ls("mt_m",best)}
+  $("mq").textContent="¡Fin! "+M.p+" pts";$("mst").textContent="Mejor marca: "+best;
+}
+$("mgo").addEventListener("click",function(){
+  if(M.on)return mcheck();
+  M.t=30;M.p=0;M.on=true;$("ma").disabled=false;$("mgo").textContent="Responder";mshow();mnew();
+  M.iv=setInterval(function(){M.t--;mshow();if(M.t<=0)mend()},1000);
+});
+function mcheck(){
+  if($("ma").value==="")return;
+  if(parseInt($("ma").value,10)===M.ans)M.p++;
+  mshow();mnew();
+}
+$("ma").addEventListener("keydown",function(e){if(e.key==="Enter"&&M.on)mcheck()});
+})();
+</script>
+</body>
+</html>
